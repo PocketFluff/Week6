@@ -1,0 +1,48 @@
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href= '/'>Home</a>
+    <a href= '/listTask'>List Task</a>
+	<a href = 'newTask'>New Task</a>
+	<a href= '/deleteTaskPage'>Delete Task</a>
+	<a href = 'updateTaskPage'>Update Task</a>
+	
+    <h3>List of Tasks</h3>
+    <table>
+        <tr>
+			<td>ID</td>
+            <td>Name</td>
+			<td>Assigned To</td>
+            <td>Due Date</td>
+			<td>Status</td>
+            <td>Description</td>
+        </tr>
+        <% for (var i=0;i< db.length;i++){ %>
+            <tr>
+				<td>
+					<%= db[i].ID %>
+				</td>
+                <td>
+                    <%= db[i].TaskName %>
+                </td>
+				<td>
+                    <%= db[i].Assigned %>
+                </td>
+                <td>
+                    <%= db[i].DueDate%>
+                </td>
+				<td>
+                    <%= db[i].Status%>
+                </td>
+                <td>
+                    <%= db[i].Description%>
+                </td>
+            </tr>
+        <% } %>
+    </table>
+    
+</body>
+
+</html>

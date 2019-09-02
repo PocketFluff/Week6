@@ -1,0 +1,40 @@
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href= '/'>Home</a>
+    <a href= '/listTask'>List Task</a>
+	<a href = 'newTask'>New Task</a>
+	<a href= '/deleteTaskPage'>Delete Task</a>
+	<a href = 'updateTaskPage'>Update Task</a>
+	
+    <p>
+	<table>
+		<form action="/addTask" method="POST">
+			<tr>
+				<td>Task Name:</td>
+				<td><input type="text" name="taskName"><br></td>
+			</tr>
+			<tr>	
+				<td>Assigned To:</td>
+				<td><input type="text" name="assigned"><br></td>
+			</tr>
+			<tr>	
+				<td>Due Date:</td>
+				<td><input type="datetime" name="dueDate"><br></td>
+			</tr>	
+			<tr>	
+				<td>Description:</td>
+				<td><input type="text" name = "description"></br></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Enter"></td>
+			</tr>
+        </form>
+	</table>
+    </p>
+    
+</body>
+
+</html>
