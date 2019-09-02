@@ -4,7 +4,7 @@ const mongodb = require('mongodb');				//Get instance of MongoDb
 var app = express();							//Get express object as app
 
 const MongoClient = mongodb.MongoClient;		//Reference Monogodb client
-const url = 'mongodb://localhost:27017/';		//URL for Mongo - typically 27017
+const url = 'mongodb://35.244.104.13 :27017/';		//URL for Mongo - typically 27017
 let database;									//Used to reference the Mongodb database.
 
 app.engine('html', require('ejs').renderFile);  //Setup the view Engine
