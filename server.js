@@ -44,8 +44,7 @@ app.get('/newTask', function(request, response){
 app.post('/addTask', function(request, response){
 	taskID = Math.floor(Math.random() * 1000);		//Integer from 0-1000.
 	taskStatus = 'In Progress';
-	
-	testDate = request.body.dueDate;
+
 	taskDate = new Date(request.body.dueDate);
 
 	database.collection("task").insertOne({
@@ -119,8 +118,7 @@ app.get('/findtasks/:lowerID/:upperID', function(request, response){
 		if (error){
 			console.log('No ID found');
 		} else {
-			console.log('Success~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-			// Do something
+			console.log(result);
 		}
 	});
 });
