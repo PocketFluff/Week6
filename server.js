@@ -2,6 +2,7 @@ var express = require('express');				//Get instance of Express
 let bodyParser = require('body-parser');		//Get instance of Body Parser
 const mongodb = require('mongodb');				//Get instance of MongoDb
 var app = express();							//Get express object as app
+let http = require('http');
 
 const MongoClient = mongodb.MongoClient;		//Reference Monogodb client
 const url = 'mongodb://localhost:27017/';		//URL for Mongo - typically 27017
@@ -102,6 +103,23 @@ app.post('/updateTask', function(request, response){
 	database.collection('task').updateOne(filter, update);
 
 	response.redirect('/listTask');
+});
+
+// Extra Task~~~~~~
+
+app.get('/findtasks/:lowerID/:upperID', function(request, response){
+	lowerId = parseInt(request.params.lowerID);
+	upperId = parseInt(request.params.upperID);
+
+	query = { ID: {$gte: lowerId, $lte: upperId}};
+	database.collection('task').find(query).toArray(function(error, result){
+		if (error){
+			console.log('No ID found');
+		} else {
+			console.log('Success~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+			// Do something
+		}
+	});
 });
 
 app.listen(8080);
