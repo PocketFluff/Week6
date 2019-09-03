@@ -45,11 +45,14 @@ app.post('/addTask', function(request, response){
 	taskID = Math.floor(Math.random() * 1000);		//Integer from 0-1000.
 	taskStatus = 'In Progress';
 	
+	testDate = request.body.dueDate;
+	taskDate = new Date(request.body.dueDate);
+
 	database.collection("task").insertOne({
 		ID : taskID,
 		TaskName : request.body.taskName,
 		Assigned : request.body.assigned,
-		DueDate : request.body.dueDate,
+		DueDate : taskDate,
 		Status : taskStatus,
 		Description : request.body.description
 	});
